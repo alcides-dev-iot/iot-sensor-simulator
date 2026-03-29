@@ -1,31 +1,88 @@
-# IoT Sensor Simulator
+# IoT Sensor Simulator with Real-Time Dashboard
 
-This project simulates an IoT device that generates temperature and humidity data.
+This project simulates a real IoT system where a virtual sensor generates environmental data (temperature and humidity) and sends it to a real-time dashboard using MQTT.
 
-It is designed to replicate how devices like ESP32 or Arduino send sensor data to monitoring systems.
 
 ## Features
 
-- Simulates temperature and humidity sensors
-- Generates real-time data
-- Easy to extend for IoT systems
-- Can be integrated with MQTT or dashboards
+- Simulated IoT device (like ESP32)
+- Real-time data generation (temperature & humidity)
+- MQTT communication protocol
+- Live dashboard visualization using Node-RED
+- Modular and scalable architecture
 
-## Technologies
+
+## Architecture
+
+Sensor Simulator (Python) → MQTT Broker → Node-RED → Dashboard UI
+
+
+## Technologies Used
 
 - Python
-- IoT simulation concepts
+- MQTT (Mosquitto)
+- Node-RED
+- JSON data handling
 
-## Use Case
 
-This project demonstrates how IoT devices send sensor data to a backend system for monitoring and analysis.
+## Dashboard Preview
 
-It can be extended to include:
+![alt text](image.png)
 
-- MQTT communication
-- Data visualization dashboards
+
+## ▶How to Run
+
+### 1. Start MQTT Broker
+Mosquitto runs automatically on most systems. If needed:
+
+    mosquitto
+
+### 2. Activate Python Environment
+
+    source venv/bin/activate
+
+### 3. Install dependencies
+
+    pip install -r requirements.txt
+
+### 4. Run the sensor simulator
+
+    python main.py
+
+### 5. Start Node-RED
+
+    node-red
+
+### 6. Open Dashboard
+Go to:
+
+    http://localhost:1880/ui
+
+
+
+## Use Cases
+
+- IoT system prototyping
+- Real-time monitoring dashboards
+- Sensor data simulation
+- MQTT-based communication systems
+
+
+## Future Improvements
+
+- Cloud deployment (AWS / Azure)
+- Data storage (database integration)
 - AI-based anomaly detection
+- Multi-device simulation
 
 ## Author
 
 Alcides Castro
+
+---
+
+### Freelance Focus
+
+I build IoT systems with real-time monitoring using MQTT, Python, and Node-RED dashboards.
+
+Available for freelance work and IoT-related projects.
