@@ -1,0 +1,227 @@
+[
+    {
+        "id": "b66294e866f504dc",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0b94aa74a649ac9b",
+        "type": "mqtt in",
+        "z": "b66294e866f504dc",
+        "name": "",
+        "topic": "iot/sensor/data",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "8e239a7291950160",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 220,
+        "wires": [
+            [
+                "5b0411552437cffd"
+            ]
+        ]
+    },
+    {
+        "id": "5b0411552437cffd",
+        "type": "json",
+        "z": "b66294e866f504dc",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 270,
+        "y": 220,
+        "wires": [
+            [
+                "29697013e856f1d4",
+                "c5dfeabc86773d96",
+                "e18eca5519066ba4"
+            ]
+        ]
+    },
+    {
+        "id": "c5dfeabc86773d96",
+        "type": "ui_gauge",
+        "z": "b66294e866f504dc",
+        "name": "",
+        "group": "706a81de8822a6df",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "°C",
+        "format": "{{msg.payload.temperature}}",
+        "min": 0,
+        "max": "35",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 670,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "29697013e856f1d4",
+        "type": "ui_gauge",
+        "z": "b66294e866f504dc",
+        "name": "",
+        "group": "706a81de8822a6df",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{msg.payload.humidity}}",
+        "min": 0,
+        "max": "70",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 660,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "1be65789b899c16a",
+        "type": "ui_chart",
+        "z": "b66294e866f504dc",
+        "name": "",
+        "group": "706a81de8822a6df",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Temperature Chart",
+        "chartType": "bar",
+        "legend": "false",
+        "xformat": "msg.payload.temperaure",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "40",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 690,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e18eca5519066ba4",
+        "type": "function",
+        "z": "b66294e866f504dc",
+        "name": "function 1",
+        "func": "msg.payload = msg.payload.temperature;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 320,
+        "wires": [
+            [
+                "1be65789b899c16a"
+            ]
+        ]
+    },
+    {
+        "id": "8e239a7291950160",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "706a81de8822a6df",
+        "type": "ui_group",
+        "name": "Sensores",
+        "tab": "ca27b993439d35c9",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ca27b993439d35c9",
+        "type": "ui_tab",
+        "name": "Dashboard IoT",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "230a708eaff9bd87",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]

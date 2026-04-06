@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/home/alcides-castro/Freelancer/Upwork/Portafolio Proyectos/iot-sensor-simulator/venv/bin/python3" "$0" "$@"
+'''exec' "/home/alcides-castro/Dev Projects/Projects/iot-sensor-simulator/venv/bin/python3" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re
