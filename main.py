@@ -1,5 +1,6 @@
 import time
 import json
+import random
 import paho.mqtt.client as mqtt
 from sensors.sensor import Sensor
 
@@ -22,8 +23,12 @@ def main():
     print("Connected to MQTT broker")
 
     while True:
-        # Generar datos del sensor
+        # Generar datos normales
         data = sensor.generate_data()
+
+        # 🔥 Forzar anomalías (5% probabilidad aprox)
+        if random.random() < 0.2:
+            data["temperature"] = random.choice([50, 68, 75, 87, 94, 100])
 
         # Convertir a JSON
         payload = json.dumps(data)
@@ -31,7 +36,7 @@ def main():
         # Publicar en MQTT
         client.publish(MQTT_TOPIC, payload)
 
-        print(f"Sent: {payload}")
+        print(f"📤 Sent: {payload}")
 
         time.sleep(2)
 
